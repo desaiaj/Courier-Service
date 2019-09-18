@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="brdMain" mouseTransparent="false" prefHeight="452.0000999999975" prefWidth="618.0" snapToPixel="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="courier_system.StartPageController">
+  <bottom>
+    <Label fx:id="lblMsg" labelFor="$lblMsg" text="Status" textFill="RED" BorderPane.alignment="CENTER_LEFT">
+      <BorderPane.margin>
+        <Insets left="5.0" />
+      </BorderPane.margin>
+    </Label>
+  </bottom>
+  <center>
+    <TabPane prefHeight="-1.0" prefWidth="-1.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" BorderPane.margin="$x5">
+      <tabs>
+        <Tab fx:id="tbShipmentForm" closable="false" onSelectionChanged="#tabChanged" text="Shipment Form">
+          <content>
+            <BorderPane focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0">
+              <center>
+                <StackPane prefHeight="150.0" prefWidth="200.0">
+                  <children>
+                    <ScrollPane id="scpaneSender" fx:id="scpaneShipment" fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" pannable="false" prefHeight="-1.0" prefWidth="-1.0" vbarPolicy="AS_NEEDED" visible="true">
+                      <content>
+                        <GridPane id="grdSender" fx:id="grdShipment" hgap="10.0" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
+                          <children>
+                            <Label alignment="BOTTOM_LEFT" text="Shipment Information" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.valignment="BOTTOM">
+                              <font>
+                                <Font name="Algerian" size="30.0" fx:id="x2" />
+                              </font>
+                              <textFill>
+                                <Color blue="0.250" green="0.250" red="0.250" fx:id="x3" />
+                              </textFill>
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="ship" />
+                              </GridPane.margin>
+                            </Label>
+                            <Label text="Shipment ID:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                              <font>
+                                <Font name="Arial" size="18.0" fx:id="x1" />
+                              </font>
+                            </Label>
+                            <TextField fx:id="txtShipmentID" editable="false" focusTraversable="false" maxWidth="-Infinity" prefWidth="350.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets left="10.0" right="10.0" fx:id="shid" />
+                              </GridPane.margin>
+                            </TextField>
+                            <Label alignment="CENTER_RIGHT" font="$x1" text="Content:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                            <Label alignment="CENTER_RIGHT" font="$x1" text="Declared Value:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                            <Label alignment="CENTER_RIGHT" font="$x1" text="Insured Value:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                            <Label alignment="CENTER_RIGHT" font="$x1" text="Dangerous Goods:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                            <TextField fx:id="txtContent" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter what's inside parcel" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="m" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField fx:id="txtDVal" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter declared value of shipment" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                              <GridPane.margin>
+                                <Insets left="10.0" right="10.0" fx:id="mm" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField fx:id="txtIVal" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter insured value of shipment" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+                              <GridPane.margin>
+                                <Insets left="10.0" right="10.0" fx:id="m2" />
+                              </GridPane.margin>
+                            </TextField>
+                            <FlowPane alignment="CENTER_LEFT" hgap="20.0" prefHeight="200.0" prefWidth="200.0" vgap="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                              <children>
+                                <RadioButton fx:id="rbYes" mnemonicParsing="false" text="Yes">
+                                  <font>
+                                    <Font size="16.0" fx:id="x7" />
+                                  </font>
+                                  <toggleGroup>
+                                    <ToggleGroup fx:id="tgCh" />
+                                  </toggleGroup>
+                                  <FlowPane.margin>
+                                    <Insets left="10.0" fx:id="m0" />
+                                  </FlowPane.margin>
+                                </RadioButton>
+                                <RadioButton fx:id="rbNo" font="$x7" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgCh" />
+                              </children>
+                              <padding>
+                                <Insets fx:id="x5" />
+                              </padding>
+                              <GridPane.margin>
+                                <Insets left="12.0" />
+                              </GridPane.margin>
+                            </FlowPane>
+                            <Button id="btnNext" fx:id="btnShipNext" defaultButton="true" mnemonicParsing="false" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" text="Next" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.0" minWidth="10.0" prefWidth="204.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="399.0" minWidth="10.0" prefWidth="390.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </content>
+                    </ScrollPane>
+                    <ScrollPane fx:id="scPaneDestination" fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" visible="false">
+                      <content>
+                        <GridPane id="grdDesAdd" fx:id="grdDesDet" alignment="TOP_LEFT" gridLinesVisible="false" hgap="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" vgap="5.0">
+                          <children>
+                            <Label alignment="BOTTOM_LEFT" font="$x2" maxHeight="-1.0" text="Destination Details" textAlignment="LEFT" textFill="$x3" underline="false" visible="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.valignment="BASELINE">
+                              <GridPane.margin>
+                                <Insets left="10.0" top="5.0" fx:id="de" />
+                              </GridPane.margin>
+                            </Label>
+                            <Label font="$x1" text="Name:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                            <Label font="$x1" text="Address:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                            <Label font="$x1" text="City:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                            <TextField id="txtName" fx:id="txtDSTName" focusTraversable="true" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter destination reciever name" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="n" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtAdd" fx:id="txtDSTAdd" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter destination address" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="a" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtCity" fx:id="txtDSTCity" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter destination city" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="c" />
+                              </GridPane.margin>
+                            </TextField>
+                            <Label font="$x1" text="Province:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                            <Label font="$x1" text="Postal Code:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                            <Label font="$x1" text="phone:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                            <Label font="$x1" text="Country:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                            <TextField id="txtProvince" fx:id="txtDSTProvince" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter destination province/state" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="pr" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtPostalCode" fx:id="txtDSTZIP" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter postal code" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="z" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtCountry" fx:id="txtDSTCountry" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter destination country" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="co" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtPhone" fx:id="txtDSTPhone" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter phone number of receiver" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.vgrow="ALWAYS">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="p" />
+                              </GridPane.margin>
+                            </TextField>
+                            <ComboBox fx:id="cbShipby" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="cbship" />
+                              </GridPane.margin>
+                            </ComboBox>
+                            <Label alignment="CENTER" font="$x1" text="Ship by:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                            <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" GridPane.rowSpan="1">
+                              <children>
+                                <Button id="btnBack" fx:id="btnDSTBack" cancelButton="false" mnemonicParsing="false" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" text="Back">
+                                  <FlowPane.margin>
+                                    <Insets right="10.0" />
+                                  </FlowPane.margin>
+                                </Button>
+                                <Button id="btnReset" fx:id="btnDSTNext" cancelButton="false" defaultButton="true" mnemonicParsing="false" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" style="" text="Next" textFill="BLACK">
+                                  <FlowPane.margin>
+                                    <Insets right="10.0" />
+                                  </FlowPane.margin>
+                                </Button>
+                              </children>
+                            </FlowPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="192.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="420.0" minWidth="10.0" prefWidth="372.0" />
+                          </columnConstraints>
+                          <padding>
+                            <Insets right="10.0" />
+                          </padding>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+                          </rowConstraints>
+                        </GridPane>
+                      </content>
+                    </ScrollPane>
+                    <ScrollPane fx:id="scPaneSender" fitToHeight="true" fitToWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="-1.0" prefWidth="-1.0" visible="false">
+                      <content>
+                        <GridPane id="grdShipment" fx:id="grdSender" hgap="10.0" maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" vgap="5.0">
+                          <children>
+                            <Label font="$x2" maxHeight="-1.0" text="Sender Information" textAlignment="LEFT" textFill="$x3" underline="false" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="BASELINE">
+                              <GridPane.margin>
+                                <Insets left="10.0" top="5.0" fx:id="se" />
+                              </GridPane.margin>
+                            </Label>
+                            <Label font="$x1" text="Name:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                            <Label font="$x1" text="Address:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                            <Label font="$x1" text="City:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                            <TextField id="txtName" fx:id="txtSNDName" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter senders name" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="ns" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtAdd" fx:id="txtSNDAdd" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter senders address" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="na" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtCity" fx:id="txtSNDCity" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter senders city" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="cs" />
+                              </GridPane.margin>
+                            </TextField>
+                            <Label font="$x1" text="Province:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                            <Label font="$x1" text="Postal Code:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                            <Label font="$x1" text="phone:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                            <Label font="$x1" text="Country:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                            <TextField id="txtProvince" fx:id="txtSNDProvince" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter senders province/state" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="spr" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtZIP" fx:id="txtSNDZIP" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter local postal code" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="sz" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtCountry" fx:id="txtSNDCountry" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter country of sender" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="sc" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="txtPhone" fx:id="txtSNDPhone" maxWidth="-Infinity" prefWidth="350.0" promptText="Enter contact number of sender" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="sp" />
+                              </GridPane.margin>
+                            </TextField>
+                            <Label alignment="CENTER" font="$x1" text="Comment:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                            <TextArea id="txtComment" fx:id="txtSNDComment" maxHeight="70.0" maxWidth="-Infinity" prefWidth="350.0" promptText="Any comments...." wrapText="true" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8">
+                              <GridPane.margin>
+                                <Insets left="10.0" fx:id="scm" />
+                              </GridPane.margin>
+                            </TextArea>
+                            <FlowPane alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                              <children>
+                                <Button id="btnBack" fx:id="btnSenBack" cancelButton="false" mnemonicParsing="false" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" text="Back">
+                                  <FlowPane.margin>
+                                    <Insets right="10.0" />
+                                  </FlowPane.margin>
+                                </Button>
+                                <Button fx:id="btnReset" cancelButton="true" defaultButton="false" mnemonicParsing="false" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" style="-fx-color:red;" text="Reset" textFill="WHITE">
+                                  <FlowPane.margin>
+                                    <Insets right="10.0" />
+                                  </FlowPane.margin>
+                                </Button>
+                                <Button id="btnSubmit" fx:id="btnSave" cancelButton="false" defaultButton="true" mnemonicParsing="true" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" text="_Submit" />
+                              </children>
+                            </FlowPane>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="192.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="420.0" minWidth="10.0" prefWidth="372.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </content>
+                    </ScrollPane>
+                  </children>
+                </StackPane>
+              </center>
+            </BorderPane>
+          </content>
+        </Tab>
+        <Tab fx:id="tbTrack" closable="false" onSelectionChanged="#tabChanged" style="" text="Track">
+          <content>
+            <GridPane gridLinesVisible="false" maxWidth="-1.0" prefHeight="-1.0" prefWidth="618.0">
+              <children>
+                <Label prefWidth="69.0" text="Track" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <font>
+                    <Font size="24.0" fx:id="x6" />
+                  </font>
+                  <GridPane.margin>
+                    <Insets left="20.0" />
+                  </GridPane.margin>
+                </Label>
+                <FlowPane alignment="CENTER_RIGHT" columnHalignment="RIGHT" hgap="10.0" orientation="HORIZONTAL" prefHeight="84.0" prefWidth="459.0" prefWrapLength="0.0" rowValignment="CENTER" vgap="10.0" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <children>
+                    <TextField fx:id="txtSearch" maxWidth="-Infinity" prefWidth="300.0" promptText="Enter Shipment Number" />
+                    <Button fx:id="btnSearch" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnClicked" prefHeight="24.0" prefWidth="69.0" text="Search" />
+                  </children>
+                  <GridPane.margin>
+                    <Insets right="10.0" />
+                  </GridPane.margin>
+                </FlowPane>
+                <ScrollPane fitToHeight="false" fitToWidth="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <content>
+                    <TableView fx:id="tblTrack" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0">
+                      <columns>
+                        <TableColumn prefWidth="75.0" text="Shipment ID" fx:id="clmShipmentID" />
+                        <TableColumn prefWidth="75.0" text="Content" fx:id="clmContent" />
+                        <TableColumn prefWidth="75.0" text="Declared Val" fx:id="clmDecVal" />
+                        <TableColumn prefWidth="75.0" text="Insured Value" fx:id="clmInsVal" />
+                        <TableColumn prefWidth="75.0" text="is Dangerous?" fx:id="clmisDange" />
+                        <TableColumn prefWidth="75.0" text="Rec. name" fx:id="clmRecName" />
+                        <TableColumn prefWidth="75.0" text="Rec. Address" fx:id="clmRecAdd" />
+                        <TableColumn prefWidth="75.0" text="Rec. City" fx:id="clmRecCity" />
+                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Rec. Province" fx:id="clmRecPro" />
+                        <TableColumn prefWidth="75.0" text="Rec. Postal Code" fx:id="clmRecZIP" />
+                        <TableColumn prefWidth="75.0" text="Rec. Country" fx:id="clmRecCou" />
+                        <TableColumn prefWidth="75.0" text="Rec. Phone" fx:id="clmRecPH" />
+                        <TableColumn prefWidth="75.0" text="Ship by" fx:id="clmShipby" />
+                        <TableColumn prefWidth="75.0" text="Sen. Name" fx:id="clmSenName" />
+                        <TableColumn prefWidth="75.0" text="Sen. Address" fx:id="clmSenAdd" />
+                        <TableColumn prefWidth="75.0" text="Sen. City" fx:id="clmSenCity" />
+                        <TableColumn prefWidth="75.0" text="Sen. Province" fx:id="clmSenPro" />
+                        <TableColumn prefWidth="75.0" text="Sen. Postal Code" fx:id="clmSenZIP" />
+                        <TableColumn prefWidth="75.0" text="Sen. Country" fx:id="clmSenCou" />
+                        <TableColumn prefWidth="75.0" text="Sen. Phone" fx:id="clmSenPH" />
+                        <TableColumn prefWidth="75.0" text="Notes" fx:id="clmNotes" />
+                      </columns>
+                    </TableView>
+                  </content>
+                  <GridPane.margin>
+                    <Insets left="5.0" right="5.0" />
+                  </GridPane.margin>
+                </ScrollPane>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="513.0" minWidth="10.0" prefWidth="119.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="603.0" minWidth="10.0" prefWidth="499.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="298.0" minHeight="10.0" prefHeight="281.0" vgrow="ALWAYS" />
+              </rowConstraints>
+            </GridPane>
+          </content>
+        </Tab>
+        <Tab fx:id="tbNav" closable="false" onSelectionChanged="#tabChanged" style="" text="Navigate">
+          <content>
+            <ScrollPane fx:id="scNav" fitToHeight="true" fitToWidth="true" hbarPolicy="AS_NEEDED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-1.0" pannable="false" prefHeight="-1.0" prefWidth="-1.0" vbarPolicy="AS_NEEDED" visible="true" vmax="1.0" vvalue="0.0">
+              <content>
+                <GridPane alignment="TOP_LEFT" gridLinesVisible="false" hgap="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" style="" vgap="3.0">
+                  <children>
+                    <Label maxHeight="-1.0" prefWidth="594.0" text="Destination Details" textAlignment="LEFT" textFill="$x3" underline="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                      <font>
+                        <Font name="Algerian" size="32.0" fx:id="x8" />
+                      </font>
+                      <GridPane.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                      </GridPane.margin>
+                    </Label>
+                    <TextField id="txtAdd" fx:id="txtNavDesName" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="add" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label font="$x1" text="Name:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                    <Label font="$x1" text="Address:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                    <TextField id="txtCity" fx:id="txtNavDesAdd" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="navadd" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label font="$x1" text="City:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                    <Label font="$x1" text="Province:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                    <Label font="$x1" text="Postal Code:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                    <Label font="$x1" text="phone:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                    <Label font="$x1" text="Country" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+                    <TextField id="txtPhone" fx:id="txtNavDesCity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nac" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField id="txtProvince" fx:id="txtNavDesPC" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="navp" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField id="txtCity" fx:id="txtNavDesPro" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="navpr" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField id="txtPostalCode" fx:id="txtNavDesPH" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="naph" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField id="txtCountry" fx:id="txtNavDesCountry" minHeight="-Infinity" minWidth="-Infinity" prefWidth="0.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="navc" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label alignment="CENTER" font="$x1" text="Ship by:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                    <ComboBox id="cbNavShipby" fx:id="cbNavDesShipby" prefWidth="100.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8">
+                      <GridPane.margin>
+                        <Insets left="10.0" fx:id="navship" />
+                      </GridPane.margin>
+                    </ComboBox>
+                    <Label font="$x1" text="Name:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+                    <Label font="$x1" text="Address:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+                    <Label font="$x1" text="City:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="12" />
+                    <TextField fx:id="txtNavSenName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nm" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavSenAdd" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsa" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavSenCity" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsc" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label font="$x1" text="Province:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="13" />
+                    <Label font="$x1" text="Postal Code:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="14" />
+                    <Label font="$x1" text="phone:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="15" />
+                    <Label font="$x1" text="Country:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="16" />
+                    <TextField fx:id="txtNavSenPro" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsp" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavSenPC" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nspc" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavSenPH" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsph" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavSenCountry" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsco" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label font="$x8" maxHeight="-1.0" text="Sender Information" textAlignment="LEFT" textFill="$x3" underline="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="1">
+                      <GridPane.margin>
+                        <Insets left="10.0" top="5.0" fx:id="sen" />
+                      </GridPane.margin>
+                    </Label>
+                    <Label alignment="CENTER" font="$x1" text="Comment:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="17" />
+                    <TextField fx:id="txtNavSenNotes" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsn" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label font="$x1" text="Content:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="20" />
+                    <Label font="$x1" text="Declared Value:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="21" />
+                    <Label font="$x1" text="Insured Value:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="22" />
+                    <TextField fx:id="txtNavContent" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nscom" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavDecVal" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="21">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsdv" />
+                      </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="txtNavInsVal" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="22">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nvi" />
+                      </GridPane.margin>
+                    </TextField>
+                    <Label font="$x8" maxHeight="-1.0" text="Shipment Information" textAlignment="LEFT" textFill="$x3" underline="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.margin="$de" GridPane.rowIndex="18" GridPane.rowSpan="1" />
+                    <FlowPane alignment="CENTER_LEFT" hgap="20.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="23">
+                      <children>
+                        <RadioButton fx:id="rbNavYes" font="$x7" mnemonicParsing="false" text="Yes">
+                          <toggleGroup>
+                            <ToggleGroup fx:id="tgCH" />
+                          </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbNavNo" font="$x7" mnemonicParsing="false" selected="true" text="No" toggleGroup="$tgCH" />
+                      </children>
+                      <GridPane.margin>
+                        <Insets left="15.0" fx:id="x11" />
+                      </GridPane.margin>
+                    </FlowPane>
+                    <Label alignment="CENTER" font="$x1" text="Dangerous Goods:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="23" />
+                    <FlowPane alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="0.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="24" GridPane.rowSpan="1">
+                      <children>
+                        <Button fx:id="btnFirst" defaultButton="true" mnemonicParsing="false" onAction="#btnNavClicked" prefHeight="26.0" prefWidth="69.0" text="&lt;&lt;" />
+                        <Button fx:id="btnPrev" defaultButton="true" mnemonicParsing="false" onAction="#btnNavClicked" prefHeight="26.0" prefWidth="69.0" text="&lt;" />
+                        <Button fx:id="btnNext" defaultButton="true" mnemonicParsing="false" onAction="#btnNavClicked" prefHeight="26.0" prefWidth="69.0" text="&gt;" />
+                        <Button fx:id="btnLast" defaultButton="true" mnemonicParsing="false" onAction="#btnNavClicked" prefHeight="26.0" prefWidth="69.0" text="&gt;&gt;" />
+                      </children>
+                      <padding>
+                        <Insets top="10.0" />
+                      </padding>
+                    </FlowPane>
+                    <FlowPane alignment="TOP_RIGHT" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="0.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="25" GridPane.rowSpan="1" GridPane.valignment="TOP">
+                      <children>
+                        <Button fx:id="btnDelete" cancelButton="true" defaultButton="false" mnemonicParsing="false" onAction="#btnNavClicked" prefHeight="27.0" prefWidth="70.0" style="-fx-color:red;" text="Delete" />
+                        <Button fx:id="btnUpdate" defaultButton="true" mnemonicParsing="false" onAction="#btnNavClicked" prefHeight="27.0" prefWidth="70.0" text="Save" />
+                      </children>
+                      <padding>
+                        <Insets left="10.0" right="20.0" top="10.0" />
+                      </padding>
+                    </FlowPane>
+                    <Label font="$x1" text="Shipment ID:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="19" />
+                    <TextField fx:id="txtNavShipmentID" editable="false" maxWidth="-1.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="19">
+                      <GridPane.margin>
+                        <Insets left="10.0" right="10.0" fx:id="nsid" />
+                      </GridPane.margin>
+                    </TextField>
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="206.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="420.0" minWidth="10.0" prefWidth="388.0" />
+                  </columnConstraints>
+                  <padding>
+                    <Insets top="5.0" />
+                  </padding>
+                  <rowConstraints>
+                    <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="TOP" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="TOP" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" valignment="TOP" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </content>
+            </ScrollPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </center>
+  <top>
+    <MenuBar>
+      <menus>
+        <Menu mnemonicParsing="false" text="File" fx:id="mnFile">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit" fx:id="mnEdit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
+</BorderPane>
